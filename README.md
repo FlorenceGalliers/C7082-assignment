@@ -45,6 +45,8 @@ Keras is a deep learning framework for python, it provides a way to define and t
 
 A dataset containing images of 12 different plant species is the basis of this analysis. It was originally discovered via the Kaggle Plant Seedlings Classification Competition (https://www.kaggle.com/c/plant-seedlings-classification/data). The full set of images were subsequently downloaded from the original source of this data (Giselsson et al 2017). The 12 species in the data set are broken down into 9 weed species and 3 crop species, a sample image from each data set is shown in Figure 1.
 
+![Sample Images of Each Class]({{FlorenceGalliers.github.io}}{{/C7082-assignment}}/blob/main/graphs/sample-images.png)
+
 ![Sample Images of Each Class](./graphs/sample-images.png)
 Figure 1: A sample image from each species class in the dataset.
 
