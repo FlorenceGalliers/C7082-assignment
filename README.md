@@ -81,12 +81,58 @@ In an image classification convnet, transfer learning is carried out by taking t
 
 There are different pre-trained networks that can be used, some examples are VGG16, Xception, ResNet50, InceptionV3 and MobileNet. For this problem the Xception network will be used (Chollet, 2017). Xception has less parameters than other models but has been shown to have higher accuracies. The Xception network is based on depthwise separated convolutional layers. The structure of this base is shown below (Figure 1). The weights learnt from training on the ‘ImageNet’ database were used in this model, and the base was frozen so it could not be trained further.
 
-<img src="https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/xception%20model%20layout.png" alt="Xception model architecture" width="200"/>
+<img src="https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/xception%20model%20layout.png" alt="Xception model architecture" width="600"/>
 Figure 1: Xception model architecture (Chollet, 2017)
 
 There are two types of hyperparameters to be considered. Firstly there are model hyperparameters which influence model selection, such as the number and width of hidden layers. Secondly the algorithm hyperparameters, these influence the speed and quality of the learning algorithm, for example learning rate of optimiser. Both types of hyperparameters were assessed and the method code file shows the creation of the optimal model that gave the highest validation accuracy.
 
-Eight versions of the model were created, with small changes each time with the hope of improving accuracy and minimising issues such as overfitting. A summary of the results of each model and the changes to the models is shown in table 2.
+Eight versions of the model were created, with small changes each time with the hope of improving accuracy and minimising issues such as overfitting. A summary of the results of each model and the changes made each time are shown below. If a parameter is not changed, it remains the same as in the model previously created. Values given are approximate training and validation accuracy.
+
+###### Model 1
+Image Size = 150 x 150 x 3
+Learning rate of optimiser = 0.001
+Batch size = 32
+89%, 73%
+
+###### Model 2
+Learning rate = 0.005
+Introduce reduce_lr and early_stop callbacks
+Early stopping @ 31 epochs
+88%, 73%
+
+###### Model 3
+Added data augmentation to training and validation data
+Early stopping @ 47 epochs
+82%, 75%
+
+###### Model 4
+Used pretrained weights from ‘imagenet’ for the base
+Early stopping @ 47 epochs
+82%, 76%
+
+###### Model 5
+Changed Dense units in classifier 
+From 100 units to 256
+From 50 units to 128
+Early stopping @ 47 epochs
+85%, 77%
+
+###### Model 6
+Increased image size to 200 x 200 x 3
+Increase batch size from 32 to 64
+Early stopping @ 29 epochs
+89%, 85%
+
+###### Model 7
+Increased learning rate to 0.01
+Early stopping @ 37 epochs
+91%, 85%
+
+###### Model 8
+Increased image size to 299 x 299 x 3
+Early stopping @ 29 epochs
+93%, 86%
+
 
 
 ### Results
