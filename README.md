@@ -45,7 +45,7 @@ Keras is a deep learning framework for python, it provides a way to define and t
 
 A dataset containing images of 12 different plant species is the basis of this analysis. It was originally discovered via the Kaggle Plant Seedlings Classification Competition (https://www.kaggle.com/c/plant-seedlings-classification/data). The full set of images were subsequently downloaded from the original source of this data (Giselsson et al 2017). The 12 species in the data set are broken down into 9 weed species and 3 crop species, a sample image from each data set is shown in Figure 1.
 
-<img src="https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/sample-images.png" alt="Sample images of each class" width="600"/>
+![Sample Images of Each Class](https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/sample-images.png)
 Figure 1: A sample image from each species class in the dataset.
 
 
@@ -86,7 +86,7 @@ In an image classification convnet, transfer learning is carried out by taking t
 
 There are different pre-trained networks that can be used, some examples are VGG16, Xception, ResNet50, InceptionV3 and MobileNet. For this problem the **Xception** network will be used (Chollet, 2017). Xception has less parameters than other models but has been shown to have higher accuracies. The Xception network is based on depthwise separated convolutional layers. The structure of this base is shown below (Figure 1). The weights learnt from training on the ‘ImageNet’ database were used in this model, and the base was frozen so it could not be trained further.
 
-<img src="https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/xception-model-layout.png" alt="Xception model architecture" width="600"/>
+![Xception Model Architecture](https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/xception-model-layout.png)
 Figure 2: Xception model architecture (Chollet, 2017)
 
 There are two types of hyperparameters to be considered. Firstly there are model hyperparameters which influence model selection, such as the number and width of hidden layers. Secondly the algorithm hyperparameters, these influence the speed and quality of the learning algorithm, for example learning rate of optimiser. Both types of hyperparameters were assessed and the method code file shows the creation of the optimal model that gave the highest validation accuracy.
