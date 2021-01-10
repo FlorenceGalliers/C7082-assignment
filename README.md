@@ -127,30 +127,30 @@ After these were added into the model, accuracy became more stable and the early
 
 Data augmentation generates more artificial training data from existing training samples, by augmenting the samples through random transformations. It is useful when the data set is small. In Keras the `ImageDataGenerator` function was used to augment images, this is the same function that was used to rescale images. There are many data augmentation options, however the idea of this model is to correctly distinguish between different plant species, so by changing the images too much or distorting them it will not help. The chosen augmentation options are only those that will keep the image in the correct shape to aid with correct identification of plants. Vertical and horizontal flipping and changes in brightness were the options of augmentation chosen. The brightness option is interesting as it may help the model work better on different images taken at different times of day. The brightness range of 50 to 150% was used.
 
-###### Model 4
+#### Model 4
 - Used pretrained weights from ‘imagenet’ for the base instead of those that are randomly generated
 - Early stopping @ 47 epochs
 - 82%, 76%
 
-###### Model 5
+#### Model 5
 - Changed Dense units in classifier 
   - From 100 units to 256
   - From 50 units to 128
 - Early stopping @ 47 epochs
 - 85%, 77%
 
-###### Model 6
+#### Model 6
 - Increased image size to 200 x 200 x 3
 - Increase batch size from 32 to 64
 - Early stopping @ 29 epochs
 - 89%, 85%
 
-###### Model 7
+#### Model 7
 - Increased learning rate to 0.01
 - Early stopping @ 37 epochs
 - 91%, 85%
 
-###### Model 8
+#### Model 8
 - Increased image size to 299 x 299 x 3
 - Early stopping @ 29 epochs
 - 93%, 86%
