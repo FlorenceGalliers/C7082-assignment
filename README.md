@@ -71,6 +71,22 @@ Each species has been given a three letter abbreviation (Table 1).
 
 Table 1: Summary of image information
 
+#### Image Preprocessing
+A CNN will only accept floating point tensors as inputs. Tensors are simply containers for data. The images contain three channels of information in the RBG format, these are numbers between 0 and 255. To format these into tensors they need to be decoded into an RGB grid of pixels and converted into floating point tensors. This is done using the keras.preprocessing.image function ImageDataGenerator. This function also rescales the tensors so the values are between [0, 1].
+
+It is important that the training and test sets are preprocessed in the same way to ensure the model accuracy can remain high on the test set. The model will be trained using supervised learning where the training dataset contains the class labels.
+
+#### Transfer Learning
+In an image classification convnet, transfer learning is carried out by taking the convolutional base of a previously trained network, running the new data through it and then training a new densely connected classifier on top of the output. The learned representations from the previously trained network are usually generic and so are able to be reused on a new problem, it is the classifier layer that becomes more specific. Transfer learning models can be more complex than newly created CNNs and so they allow for more accurate classification.
+
+There are different pre-trained networks that can be used, some examples are VGG16, Xception, ResNet50, InceptionV3 and MobileNet. For this problem the Xception network will be used (Chollet, 2017). Xception has less parameters than other models but has been shown to have higher accuracies. The Xception network is based on depthwise separated convolutional layers. The structure of this base is shown below (Figure 1). The weights learnt from training on the ‘ImageNet’ database were used in this model, and the base was frozen so it could not be trained further.
+
+[Figure 1: Xception model architecture (Chollet, 2017)](https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/xception%20model%20layout.png)
+
+There are two types of hyperparameters to be considered. Firstly there are model hyperparameters which influence model selection, such as the number and width of hidden layers. Secondly the algorithm hyperparameters, these influence the speed and quality of the learning algorithm, for example learning rate of optimiser. Both types of hyperparameters were assessed and the method code file shows the creation of the optimal model that gave the highest validation accuracy.
+
+Eight versions of the model were created, with small changes each time with the hope of improving accuracy and minimising issues such as overfitting. A summary of the results of each model and the changes to the models is shown in table 2.
+
 
 ### Results
 
