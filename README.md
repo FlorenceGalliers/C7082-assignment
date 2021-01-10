@@ -85,6 +85,7 @@ There are different pre-trained networks that can be used, some examples are VGG
 Figure 1: Xception model architecture (Chollet, 2017)
 
 
+
 There are two types of hyperparameters to be considered. Firstly there are model hyperparameters which influence model selection, such as the number and width of hidden layers. Secondly the algorithm hyperparameters, these influence the speed and quality of the learning algorithm, for example learning rate of optimiser. Both types of hyperparameters were assessed and the method code file shows the creation of the optimal model that gave the highest validation accuracy.
 
 The `Sequential()` function was used to define the model architecture. The pretrained convolutional base is imported from the Xception model and acts as the first ‘layer’ when defining the model, although it contains 14 blocks of layers. A new densely connected classifier is defined on top of this. Firstly a Global Max Pooling layer is used which downscales the feature maps of the inputs it receives. Then a dense layer, which learns global patterns followed by a batch normalisation layer that learns local patterns. Adding in a dropout layer next causes a random selection of units to be removed from the network, the value of 0.5 was chosen as this is near to the optimal for most models (Srivastava et al. 2014). Dropout layers help to reduce overfitting. This is followed by a further two dense and batch normalisation layers. The output layer is a dense later, with ‘softmax’ activation. The number of units in this layer should be equal to the number of classes in the data, in this case 12.
@@ -165,6 +166,7 @@ Figure 2: Training and Validation Accuracy of Final Model
 
 <img src="https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/final-model-cost.png" alt="Final Model Loss Graph" width="400"/>
 Figure 3: Training and Validation Loss of Final Model
+
 
 Testing this model on a test data set gave an accuracy score of **87.67%** and a loss value of **0.46**. This is very near to the validation accuracy, showing that that model performs well on unseen data.
 
