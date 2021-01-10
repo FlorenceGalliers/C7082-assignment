@@ -165,9 +165,11 @@ The model showed a maximum training accuracy of **93%** and a maximum validation
 Model cost during training reduced to **0.186** and during validation was at a minimum value of **0.369**.
 
 ![Final Model Acc Graph](https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/final-model-acc.png)
+
 Figure 3: Training and Validation Accuracy of Final Model
 
 ![Final Model Loss Graph](https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/final-model-cost.png)
+
 Figure 4: Training and Validation Loss of Final Model
 
 
