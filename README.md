@@ -34,6 +34,7 @@ Machine learning approaches can be applied to these problems, in this analysis t
 
 ### Objectives
 **1. Train a deep learning image classification model that can identify between weed and crop plants.**
+
 **2. Improve the model accuracy by tuning the hyperparameters of the model and algorithm.**
 
 ## Methods
