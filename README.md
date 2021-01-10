@@ -43,7 +43,9 @@ Keras is a deep learning framework for python, it provides a way to define and t
 
 ### Data
 
-A dataset containing images of 12 different plant species is the basis of this analysis. It was originally discovered via the Kaggle Plant Seedlings Classification Competition (https://www.kaggle.com/c/plant-seedlings-classification/data). The full set of images were subsequently downloaded from the original source of this data (Giselsson et al 2017). The 12 species in the data set are broken down into 9 weed species and 3 crop species, common to the UK.
+A dataset containing images of 12 different plant species is the basis of this analysis. It was originally discovered via the Kaggle Plant Seedlings Classification Competition (https://www.kaggle.com/c/plant-seedlings-classification/data). The full set of images were subsequently downloaded from the original source of this data (Giselsson et al 2017). The 12 species in the data set are broken down into 9 weed species and 3 crop species, a sample image from each data set is shown in Figure 1.
+
+![Figure 1](https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/sample-images.png)
 
 Images are PNG files in a RGB format, the original images are all different sizes. Images will all be resized during the defining of the model generator. Different image sizes were explored from 150x150 upwards, but the size 299x299 was chosen as it yielded more accurate results than smaller images. 
 
@@ -83,7 +85,7 @@ In an image classification convnet, transfer learning is carried out by taking t
 There are different pre-trained networks that can be used, some examples are VGG16, Xception, ResNet50, InceptionV3 and MobileNet. For this problem the **Xception** network will be used (Chollet, 2017). Xception has less parameters than other models but has been shown to have higher accuracies. The Xception network is based on depthwise separated convolutional layers. The structure of this base is shown below (Figure 1). The weights learnt from training on the ‘ImageNet’ database were used in this model, and the base was frozen so it could not be trained further.
 
 <img src="https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/xception%20model%20layout.png" alt="Xception model architecture" width="600"/>
-Figure 1: Xception model architecture (Chollet, 2017)
+Figure 2: Xception model architecture (Chollet, 2017)
 
 There are two types of hyperparameters to be considered. Firstly there are model hyperparameters which influence model selection, such as the number and width of hidden layers. Secondly the algorithm hyperparameters, these influence the speed and quality of the learning algorithm, for example learning rate of optimiser. Both types of hyperparameters were assessed and the method code file shows the creation of the optimal model that gave the highest validation accuracy.
 
@@ -161,10 +163,10 @@ The model showed a maximum training accuracy of **93%** and a maximum validation
 Model cost during training reduced to **0.186** and during validation was at a minimum value of **0.369**.
 
 <img src="https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/final-model-acc.png" alt="Final Model Accuracy Graph" width="400"/>
-Figure 2: Training and Validation Accuracy of Final Model
+Figure 3: Training and Validation Accuracy of Final Model
 
 <img src="https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/final-model-cost.png" alt="Final Model Loss Graph" width="400"/>
-Figure 3: Training and Validation Loss of Final Model
+Figure 4: Training and Validation Loss of Final Model
 
 
 Testing this model on a test data set gave an accuracy score of **87.67%** and a loss value of **0.46**. This is very near to the validation accuracy, showing that that model performs well on unseen data.
