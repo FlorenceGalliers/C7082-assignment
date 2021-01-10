@@ -45,8 +45,6 @@ Keras is a deep learning framework for python, it provides a way to define and t
 
 A dataset containing images of 12 different plant species is the basis of this analysis. It was originally discovered via the Kaggle Plant Seedlings Classification Competition (https://www.kaggle.com/c/plant-seedlings-classification/data). The full set of images were subsequently downloaded from the original source of this data (Giselsson et al 2017). The 12 species in the data set are broken down into 9 weed species and 3 crop species, a sample image from each data set is shown in Figure 1.
 
-![Sample Images of Each Class]({{FlorenceGalliers.github.io}}{{/C7082-assignment}}/blob/main/graphs/sample-images.png)
-
 ![Sample Images of Each Class](./graphs/sample-images.png)
 Figure 1: A sample image from each species class in the dataset.
 
@@ -88,7 +86,7 @@ In an image classification convnet, transfer learning is carried out by taking t
 
 There are different pre-trained networks that can be used, some examples are VGG16, Xception, ResNet50, InceptionV3 and MobileNet. For this problem the **Xception** network will be used (Chollet, 2017). Xception has less parameters than other models but has been shown to have higher accuracies. The Xception network is based on depthwise separated convolutional layers. The structure of this base is shown below (Figure 1). The weights learnt from training on the ‘ImageNet’ database were used in this model, and the base was frozen so it could not be trained further.
 
-![Xception Model Architecture](https://github.com/florencegalliers/C7082-assignment/blob/main/graphs/xception-model.png)
+![Xception Model Architecture](../graphs/xception-model.png)
 Figure 2: Xception model architecture (Chollet, 2017)
 
 There are two types of hyperparameters to be considered. Firstly there are model hyperparameters which influence model selection, such as the number and width of hidden layers. Secondly the algorithm hyperparameters, these influence the speed and quality of the learning algorithm, for example learning rate of optimiser. Both types of hyperparameters were assessed and the method code file shows the creation of the optimal model that gave the highest validation accuracy.
@@ -166,11 +164,11 @@ After this model improvement process, the final model chosen was model 8, run wi
 The model showed a maximum training accuracy of **93%** and a maximum validation accuracy of **89%**. The training and validation accuracy were not far apart, and both continued increasing until the last epochs, this suggests overfitting was not causing a problem in this model. 
 Model cost during training reduced to **0.186** and during validation was at a minimum value of **0.369**.
 
-![Final Model Acc Graph](https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/final-model-acc.png)
+![Final Model Acc Graph](../graphs/final-model-acc.png)
 
 Figure 3: Training and Validation Accuracy of Final Model
 
-![Final Model Loss Graph](https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/final-model-cost.png)
+![Final Model Loss Graph](../graphs/final-model-cost.png)
 
 Figure 4: Training and Validation Loss of Final Model
 
