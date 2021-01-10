@@ -84,6 +84,7 @@ There are different pre-trained networks that can be used, some examples are VGG
 <img src="https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/xception%20model%20layout.png" alt="Xception model architecture" width="600"/>
 Figure 1: Xception model architecture (Chollet, 2017)
 
+
 There are two types of hyperparameters to be considered. Firstly there are model hyperparameters which influence model selection, such as the number and width of hidden layers. Secondly the algorithm hyperparameters, these influence the speed and quality of the learning algorithm, for example learning rate of optimiser. Both types of hyperparameters were assessed and the method code file shows the creation of the optimal model that gave the highest validation accuracy.
 
 The `Sequential()` function was used to define the model architecture. The pretrained convolutional base is imported from the Xception model and acts as the first ‘layer’ when defining the model, although it contains 14 blocks of layers. A new densely connected classifier is defined on top of this. Firstly a Global Max Pooling layer is used which downscales the feature maps of the inputs it receives. Then a dense layer, which learns global patterns followed by a batch normalisation layer that learns local patterns. Adding in a dropout layer next causes a random selection of units to be removed from the network, the value of 0.5 was chosen as this is near to the optimal for most models (Srivastava et al. 2014). Dropout layers help to reduce overfitting. This is followed by a further two dense and batch normalisation layers. The output layer is a dense later, with ‘softmax’ activation. The number of units in this layer should be equal to the number of classes in the data, in this case 12.
@@ -91,7 +92,9 @@ The `Sequential()` function was used to define the model architecture. The pretr
 The next step is to compile the model using the `model.compile()` function. In this step the loss function, optimiser and metrics must be defined.
 
 **Loss Function:** This is the quantity that will be minimised during training, it represents the measure of success. The loss function has to match the problem that is being solved. In this case it is a multi-class single-label classification problem, and so **categorical cross-entropy** is used as the loss function.
+
 **Optimiser:** This determines how the network will be updated during training based on the loss function. It implements a specific variant of stochastic gradient descent.  This model uses the Adam optimiser which is an adaptive learning rate gradient descent. The goal of any optimiser is to calculate the weights that optimally minimise the loss function. The learning rate chosen to start with was 0.001.
+
 **Metrics:** Training loss and validation loss can be monitored during model training to assess if there is under or overfitting. When the model's validation performance does not improve but the training performance continues to improve, there is overfitting in the model. As overfitting is undesirable, methods can be used to reduce the effects of this. The metric for evaluation is ‘accuracy’ as this is what will be assessed.
 
 Eight versions of the model were created, with small changes each time with the hope of improving accuracy and minimising issues such as overfitting. A summary of the results of each model and the changes made each time are shown below. If a parameter is not changed, it remains the same as in the model previously created. Values given are approximate training and validation accuracy.
@@ -160,7 +163,7 @@ Model cost during training reduced to **0.186** and during validation was at a m
 <img src="https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/final-model-acc.png" alt="Final Model Accuracy Graph" width="400"/>
 Figure 2: Training and Validation Accuracy of Final Model
 
-<img src="https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/final-model-loss.png" alt="Final Model Loss Graph" width="400"/>
+<img src="https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/final-model-cost.png" alt="Final Model Loss Graph" width="400"/>
 Figure 3: Training and Validation Loss of Final Model
 
 Testing this model on a test data set gave an accuracy score of **87.67%** and a loss value of **0.46**. This is very near to the validation accuracy, showing that that model performs well on unseen data.
