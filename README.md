@@ -3,7 +3,7 @@
 
 [Github Repository](https://github.com/FlorenceGalliers/C7082-assignment) 
 
-```css, echo = false
+```css, include = false
 site_url: https://florencegalliers.github.io/C7082-assignment/
 ```
 
