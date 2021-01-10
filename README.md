@@ -15,8 +15,8 @@ Data
 - [GBIF Data](GBIF-data) Images downloaded from [GBIF](https://www.gbif.org/), split into 12 folders, one for each class.
 
 Graphs contains graphical outputs from model selection and figures for the final report.
-- [Final Model Accuracy Graph](graphs/Final Model Accuracy.png)
-- [Final Model Loss Graph](graphs/Final Model Cost.png)
+- [Final Model Accuracy Graph](graphs/final-model-acc.png)
+- [Final Model Loss Graph](graphs/final-model-cost.png)
 
 
 [Publicly accessible webpage](https://florencegalliers.github.io/C7082-assignment/)
