@@ -2,10 +2,10 @@
 ## Training a deep learning model to identify between images of weed and crop species.
 
 [Github Repository](https://github.com/FlorenceGalliers/C7082-assignment) 
-https://github.com/FlorenceGalliers/C7082-assignment
+  https://github.com/FlorenceGalliers/C7082-assignment
 
 [Publicly Accessible Webpage](https://florencegalliers.github.io/C7082-assignment/) 
-https://florencegalliers.github.io/C7082-assignment/
+  https://florencegalliers.github.io/C7082-assignment/
 
 **Scripts** within repository
 - [Renaming Files](scripts/renaming-files.ipynb)
