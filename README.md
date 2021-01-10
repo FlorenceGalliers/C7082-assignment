@@ -5,12 +5,12 @@
 
 Scripts within repository
 - [Renaming Files](scripts/renaming-files.ipynb)
-- Image Organisation
-- Model Selection
-- Final Model
+- [Image Organisation](scripts/image-organisation.ipynb)
+- [Model Selection](scripts/model-selection.ipynb)
+- [Final Model](final-model.ipynb) - This contains the code used for the creation of the final model
 
 Data
-- all-data
+- [All Data](all-data)
 - new-data
 - GBIF-data
 
