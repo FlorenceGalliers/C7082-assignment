@@ -10,11 +10,13 @@ Scripts within repository
 - [Final Model](final-model.ipynb) - This contains the code used for the creation of the final model
 
 Data
-- [All Data](all-data)
-- new-data
-- GBIF-data
+- [All Data](all-data) A full collection of images used, split into 12 classes
+- [New Data](new-data) Images from above file, split into three groups: train, validation and test, each containing 12 folders, one for each class.
+- [GBIF Data](GBIF-data) Images downloaded from [GBIF](https://www.gbif.org/), split into 12 folders, one for each class.
 
 Graphs contains graphical outputs from model selection and figures for the final report.
+- [Final Model Accuracy Graph](Graphs/Final Model Accuracy.png)
+- [Final Model Loss Graph](Graphs/Final Model Cost.png)
 
 
 [Publicly accessible webpage](https://florencegalliers.github.io/C7082-assignment/)
