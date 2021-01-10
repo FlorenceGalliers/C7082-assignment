@@ -55,7 +55,18 @@ Each species has been given a three letter abbreviation (Table 1).
 
 | Plant Name    | Weed or Crop? | Abbreviation | Total Images |
 | ------------- |:-------------:| ------------:| -----------: |
-| Black Grass   | Weed          | bgs          | 309           | 
+| Black Grass, *Alopecurus myosuroides*  | Weed          | bgs          | 309           | 
+| Charlock, *Sinapis arvensis* | Weed | chk | 452 |
+| Cleavers, *Galium aparine* | Weed | cls | 335 |
+| Common Chickweed, *Stellaria media* | Weed | cwd | 713 |
+| Cranesbill, *Gerenium pusillum* | Weed | cbl | 576 |
+| Loose Silky Bent, *Apera spica-venti* | Weed | lsb | 762 |
+| Scentless Mayweed, *Matricaria inodora* | Weed | smw | 607 |
+| Sheperd's Purse, *Capsella bursa-pastoris* | Weed | shp | 274 |
+| Fat Hen, *Chenopodium album* | Weed | fhn | 538 |
+| Wheat, *Tricicum aestivum* | Crop | wht | 253 |
+| Maize, *Zea mays* | Crop | mze | 257 |
+| Sugar Beet, *Beta vulgaris* | Crop | sbt | 463 |
 
 
 Table 1: Summary of image information
