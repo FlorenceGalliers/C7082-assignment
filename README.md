@@ -48,6 +48,7 @@ A dataset containing images of 12 different plant species is the basis of this a
 <img src="https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/sample-images.png" alt="Sample images of each class" width="600"/>
 Figure 1: A sample image from each species class in the dataset.
 
+
 Images are PNG files in a RGB format, the original images are all different sizes. Images will all be resized during the defining of the model generator. Different image sizes were explored from 150x150 upwards, but the size 299x299 was chosen as it yielded more accurate results than smaller images. 
 
 A second set of 290 images were downloaded from GBIF (https://www.gbif.org/), with 20 to 25 images per class. This will later be used as a secondary test set for the final model.
