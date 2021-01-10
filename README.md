@@ -33,8 +33,8 @@ It is important that weeds can be distinguished from crops at any stage of growt
 Machine learning approaches can be applied to these problems, in this analysis through the use of Convolutional Neural Networks (CNNs). CNNs are a type of neural network specific to image datasets and can be used for classification tasks. They allow the information an image contains to be inputted into a model, without the spatial features being lost which are critical for image recognition tasks. CNNs are made up of layers and end by applying a function to output a probability of the image being in each class.
 
 ### Objectives
-1. Train a deep learning image classification model that can identify between weed and crop plants.
-2. Improve the model accuracy by tuning the hyperparameters of the model and algorithm.
+**1. Train a deep learning image classification model that can identify between weed and crop plants.**
+**2. Improve the model accuracy by tuning the hyperparameters of the model and algorithm.**
 
 ## Methods
 
@@ -83,8 +83,6 @@ There are different pre-trained networks that can be used, some examples are VGG
 
 <img src="https://github.com/FlorenceGalliers/C7082-assignment/blob/main/graphs/xception%20model%20layout.png" alt="Xception model architecture" width="600"/>
 Figure 1: Xception model architecture (Chollet, 2017)
-
-
 
 There are two types of hyperparameters to be considered. Firstly there are model hyperparameters which influence model selection, such as the number and width of hidden layers. Secondly the algorithm hyperparameters, these influence the speed and quality of the learning algorithm, for example learning rate of optimiser. Both types of hyperparameters were assessed and the method code file shows the creation of the optimal model that gave the highest validation accuracy.
 
