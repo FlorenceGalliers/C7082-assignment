@@ -3,10 +3,6 @@
 
 [Github Repository](https://github.com/FlorenceGalliers/C7082-assignment) 
 
-```css, include = false
-site_url: https://florencegalliers.github.io/C7082-assignment/
-```
-
 [Publicly Accessible Webpage](https://florencegalliers.github.io/C7082-assignment/)
 
 **Scripts** within repository
