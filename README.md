@@ -10,19 +10,19 @@
   https://florencegalliers.github.io/C7082-assignment/
 
 **Scripts** within repository
-- [Renaming Files](scripts/renaming-files.ipynb)
-- [Image Organisation](scripts/image-organisation.ipynb)
-- [Model Selection](scripts/model-selection.ipynb)
-- [Final Model](final-model.ipynb) - This contains the code used for the creation of the final model
+- [Renaming Files](./scripts/renaming-files.ipynb)- an optional script, used to rename all files after download.
+- [Image Organisation](./scripts/image-organisation.ipynb) - this is used for organising images into train, validation and test groups.
+- [Model Selection](./scripts/model-selection.ipynb) - contains all code for the 8 models made before the final model was selected.
+- [Final Model](./final-model.ipynb) - This contains the code used for the creation of the final model.
 
 **Data**
-- [All Data](all-data) A full collection of images used, split into 12 classes
-- [New Data](new-data) Images from above file, split into three groups: train, validation and test, each containing 12 folders, one for each class.
-- [GBIF Data](GBIF-data) Images downloaded from [GBIF](https://www.gbif.org/), split into 12 folders, one for each class.
+- [All Data](./all-data) A full collection of images used, split into 12 classes
+- [New Data](./new-data) Images from above file, split into three groups: train, validation and test, each containing 12 folders, one for each class.
+- [GBIF Data](./GBIF-data) Images downloaded from [GBIF](https://www.gbif.org/), split into 12 folders, one for each class.
 
 **Graphs** contains outputs from model selection and figures contained in the final report
-- [Final Model Accuracy Graph](graphs/final-model-acc.png)
-- [Final Model Loss Graph](graphs/final-model-cost.png)
+- [Final Model Accuracy Graph](./graphs/final-model-acc.png)
+- [Final Model Loss Graph](./graphs/final-model-cost.png)
 
 ## Introduction
 
@@ -53,9 +53,12 @@ A dataset containing images of 12 different plant species is the basis of this a
 Figure 1: A sample image from each species class in the dataset.
 
 
-Images are PNG files in a RGB format, the original images are all different sizes. Images will all be resized during the defining of the model generator. Different image sizes were explored from 150x150 upwards, but the size 299x299 was chosen as it yielded more accurate results than smaller images. 
+Images are PNG files in a RGB format, the original images are all different sizes. Images will all be resized during the defining of the model generator. Different image sizes were explored from 150x150 upwards, but the size 299x299 was chosen for the final model as it yielded more accurate results than smaller images. 
 
-A second set of 290 images were downloaded from GBIF (https://www.gbif.org/), with 20 to 25 images per class. This will later be used as a secondary test set for the final model.
+A second set of 290 images were downloaded from [GBIF](https://www.gbif.org/), with 20 to 25 images per class. This will later be used as a secondary test set for the final model. Example images are shown in Figure 2, and it is clear the images differ from each other much more than images in the main data set.
+
+![Sample Images of Each Class](./graphs/gbif-sample-images.png)
+Figure 2: A sample image from each species class in the GBIF dataset used as a secondary test set.
 
 The data is split into three groups: training, validation and test. The validation and test sets each contain 25 images of each species, with the remaining images all being used for training. In all of the subgroups, images are split into 12 folders which act as classes.
 
@@ -91,7 +94,7 @@ In an image classification convnet, transfer learning is carried out by taking t
 There are different pre-trained networks that can be used, some examples are VGG16, Xception, ResNet50, InceptionV3 and MobileNet. For this problem the **Xception** network will be used (Chollet, 2017). Xception has less parameters than other models but has been shown to have higher accuracies. The Xception network is based on depthwise separated convolutional layers. The structure of this base is shown below (Figure 1). The weights learnt from training on the ‘ImageNet’ database were used in this model, and the base was frozen so it could not be trained further.
 
 ![Xception Model Architecture](./graphs/xception-model.png)
-Figure 2: Xception model architecture (Chollet, 2017)
+Figure 3: Xception model architecture (Chollet, 2017)
 
 There are two types of hyperparameters to be considered. Firstly there are model hyperparameters which influence model selection, such as the number and width of hidden layers. Secondly the algorithm hyperparameters, these influence the speed and quality of the learning algorithm, for example learning rate of optimiser. Both types of hyperparameters were assessed and the method code file shows the creation of the optimal model that gave the highest validation accuracy.
 
@@ -101,11 +104,11 @@ The next step is to compile the model using the `model.compile()` function. In t
 
 **Loss Function:** This is the quantity that will be minimised during training, it represents the measure of success. The loss function has to match the problem that is being solved. In this case it is a multi-class single-label classification problem, and so **categorical cross-entropy** is used as the loss function.
 
-**Optimiser:** This determines how the network will be updated during training based on the loss function. It implements a specific variant of stochastic gradient descent.  This model uses the Adam optimiser which is an adaptive learning rate gradient descent. The goal of any optimiser is to calculate the weights that optimally minimise the loss function. The learning rate chosen to start with was 0.001.
+**Optimiser:** This determines how the network will be updated during training based on the loss function. It implements a specific variant of stochastic gradient descent.  This model uses the **Adam optimiser** which is an adaptive learning rate gradient descent. The goal of any optimiser is to calculate the weights that optimally minimise the loss function. The learning rate chosen to start with was 0.001.
 
 **Metrics:** Training loss and validation loss can be monitored during model training to assess if there is under or overfitting. When the model's validation performance does not improve but the training performance continues to improve, there is overfitting in the model. As overfitting is undesirable, methods can be used to reduce the effects of this. The metric for evaluation is ‘accuracy’ as this is what will be assessed.
 
-Eight versions of the model were created, with small changes each time with the hope of improving accuracy and minimising issues such as overfitting. A summary of the results of each model and the changes made each time are shown below. If a parameter is not changed, it remains the same as in the model previously created. Values given are approximate training and validation accuracy.
+Eight versions of the model were created, with small changes each time with the hope of improving accuracy and minimising issues such as overfitting. A summary of the results of each model and the changes made each time are shown below. If a parameter is not changed, it remains the same as in the model previously created. Values given are approximate training and validation accuracy. Models were all run for 50 epochs unless otherwise stated. Code for the creation and evolution of the models can be found [here](./scripts/model-selection.ipynb).
 
 #### Model 1
 - Image Size = 150 x 150 x 3
@@ -115,15 +118,16 @@ Eight versions of the model were created, with small changes each time with the 
 
 The number of training sample images is relatively low in comparison to larger scale models and so overfitting was seen to begin with. The goal is to achieve a model that does not over or underfit. Different methods were used to try and reduce the effects of overfitting.
 
+The first method used was the introduction of **callback** functions, although these are not strictly related to overfitting they are important in the creation of the model. Two callback functions were used in this one, `ReduceLROnPlateau()` and `Earlystopping()`. They both monitor the validation loss value.
+
 #### Model 2
 - Learning rate increased to 0.005
 - Introduce `reduce_lr` and `early_stop` callbacks
 - Early stopping @ 31 epochs
 - 88%, 73%
 
-The first method used was the introduction of **callback** functions, although these are not strictly related to overfitting they are important in the creation of the model. Two callback functions were used in this one, `ReduceLROnPlateau()` and `Earlystopping()`. They both monitor the validation loss value.
-- ReduceLROnPlateau causes adjustments in learning rate when the model performance is not improving. It is adjusted by multiplication by the factor 0.5. The ‘patience’ option in this function can be used to set the number of epochs that should take place with no improvement in performance before learning rate is decreased. It was set to 3 in the creation of this model. Minimum learning rate can also be defined, at 0.0005 here.
-- EarlyStopping is a callback that stops the training of a model if no improvement in model performance is seen. It is useful because it saves time and computational energy if a model has stopped improving. The ‘patience’ option is also defined in this callback and was set to 10 epochs.
+- **ReduceLROnPlateau** causes adjustments in learning rate when the model performance is not improving. It is adjusted by multiplication by the factor 0.5. The ‘patience’ option in this function can be used to set the number of epochs that should take place with no improvement in performance before learning rate is decreased. It was set to 3 in the creation of this model. Minimum learning rate can also be defined, at 0.0005 here.
+- **EarlyStopping** is a callback that stops the training of a model if no improvement in model performance is seen. It is useful because it saves time and computational energy if a model has stopped improving. The ‘patience’ option is also defined in this callback and was set to 10 epochs.
 
 After these were added into the model, accuracy became more stable and the early fitting function was called in most cases with the training ending early.
 
@@ -170,11 +174,11 @@ Model cost during training reduced to **0.186** and during validation was at a m
 
 ![Final Model Acc Graph](./graphs/final-model-acc.png)
 
-Figure 3: Training and Validation Accuracy of Final Model
+Figure 4: Training and Validation Accuracy of Final Model
 
 ![Final Model Loss Graph](./graphs/final-model-cost.png)
 
-Figure 4: Training and Validation Loss of Final Model
+Figure 5: Training and Validation Loss of Final Model
 
 
 Testing this model on a test data set gave an accuracy score of **87.67%** and a loss value of **0.46**. This is very near to the validation accuracy, showing that that model performs well on unseen data.
@@ -189,15 +193,15 @@ The weights used in the final model were those trained on the ImageNet dataset, 
 
 Low accuracy suggests that there is a high chance misclassification could occur. This may just be between different weed species, rather than between ‘weed’ or ‘crop’. A different approach that was not taken here would be to have just two classes of data, one containing weed species and one crop species. This could produce more accurate results as there would only be two classes. In practice for weed control purposes, for example if this technology was used within a sprayer, it would only need to know whether to spray a plant or not. This suggests that simplification of the model classes may be possible.
 
-Another approach would be to develop crop specific models, for example one for use in a field where wheat is grown and a different one for maize fields. This would allow higher specificity in training of just one crop species against the weed species. The model in theory would only need to learn crop or not crop. It would be unusual to grow a combination of different crops in one field, therefore it makes sense to separate them out.
+Another approach would be to develop crop specific models, for example one for use in a field where wheat is grown and a different one for maize fields. This would allow higher specificity in training of just one crop species against the weed species. The model in theory would only need to learn crop or not crop. It is less likely that a a combination of different crops are gorwn in one field, therefore it may makes sense to separate them out.
 
-The detection of weed cover is an active area of research and the Identification of weed and crop species is used in the creation of weed cover maps. Partel et al (2019) put forward a method combining a CNNs, a weed mapping system and a precision sprayer in order to reduce the quantity of herbicides applied. Utilising real time image capture this shows the potential of these systems to aid in reducing chemical inputs in a commercially feasible method. Weed mapping using satellite imagery has seen mixed results but image quality and cloud cover have reduced the accuracy of this method. Using methods based closer to the ground, image quality and precision could be improved.
+The detection of weed cover is an active area of research and the identification of weed and crop species is used in the creation of weed cover maps. Partel et al (2019) put forward a method combining a CNNs, a weed mapping system and a precision sprayer in order to reduce the quantity of herbicides applied. Utilising real time image capture this shows the potential of these systems to aid in reducing chemical inputs in a commercially feasible method. Weed mapping using satellite imagery has seen mixed results but image quality and cloud cover have reduced the accuracy of this method. Using methods based closer to the ground, image quality and precision could be improved.
 
 Past research has shown that the application of an image classification model trained in one environment performs inaccurately when transferred to a new environment (Lambert et al, 2019). To test this theory, the model created above was tested using images collected from another source (GBIF). Accuracy was greatly decreased to 23.10% and model loss increased to 5.54, this is in agreement with previous research showing that models trained with one set of images perform poorly with completely new images. Perhaps by combining these images with the original image set, and training the model with a shuffled combination, the accuracy could be improved. However, when then tested with an alternative new dataset, the decrease in accuracy may still occur.
 
 Image quality is low in some of the training images due to the variation in size and the artificial backgrounds of the images makes the model difficult to transfer to other groups of images. All images are taken in one place and the background noise caused by trays, measuring tapes and stones may have led to lower accuracy. 
 
-Future models created with this data set should look to balance the number of images in each class, and combine new images into the training so the model is more transferable. Cross validation for hyperparameter searching is something else that could be explored to see if the optimal values are being used. This model creation had no detection component, and it may be that the model is recognising other things in the images such as stones or trays, rather than the plants themselves. By training a model to detect only the plant, model improvement may be seen.
+In conclusion the final model created during this project shows the potential for convolutional neural networks to be used to solve agricultural problems. However quantity and quality of training data is very important, especially to allow the model to be transferable across different sitations and environments. Future models created with this data set should look to balance the number of images in each class, and combine new images into the training so the model is more transferable. Cross validation for hyperparameter searching is something else that could be explored to see if the optimal values are being used. This model creation had no detection component, and it may be that the model is recognising other things in the images such as stones or trays, rather than the plants themselves. By training a model to detect only the plant with the use of bounding boxes it would be interesting to see if model accuracy improved.
 
 ### References
 
